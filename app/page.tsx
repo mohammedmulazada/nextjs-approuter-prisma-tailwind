@@ -3,7 +3,14 @@ import { handleToggleTodo } from "./action";
 import prisma from "./lib/prisma";
 
 export default async function Home() {
+  try {
+    const todos = await prisma.todo.findMany();
+    console.log(todos, "qqqq");
+  } catch (error) {
+    console.log(error, "qqweqwe");
+  }
   const todos = await prisma.todo.findMany();
+  console.log(todos);
 
   return (
     <main className="flex min-h-screen flex-col p-24">
