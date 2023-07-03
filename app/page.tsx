@@ -4,7 +4,7 @@ import prisma from "./lib/prisma";
 
 export default async function Home() {
   const todos = await prisma.todo.findMany();
-  console.log(todos);
+
   return (
     <main className="flex min-h-screen flex-col p-24">
       <h1 className="mb-16 text-gray-900 text-7xl dark:text-white">Todo</h1>
