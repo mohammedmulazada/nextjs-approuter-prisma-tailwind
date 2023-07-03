@@ -20,12 +20,12 @@ export const handleUpdateTodo = async (data: FormData) => {
     },
   });
 
+  revalidatePath("/");
   revalidatePath("/edit/[todoid]");
 };
 
 export const handleToggleTodo = async (data: FormData) => {
   const todoId = data.get("todoid");
-  console.log("!!!", todoId);
 
   if (!todoId) {
     return;
