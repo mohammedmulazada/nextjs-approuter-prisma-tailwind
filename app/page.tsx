@@ -2,12 +2,15 @@ import Link from "next/link";
 import { handleToggleTodo } from "./action";
 import prisma from "./lib/prisma";
 
+export const dynamic = "force-dynamic";
+export const revalidate = "no-store";
+
 export default async function Home() {
   const todos = await prisma.todo.findMany();
 
   return (
-    <main className="flex min-h-screen flex-col p-24">
-      <h1 className="mb-16 text-gray-900 text-7xl dark:text-white">Todo</h1>
+    <main>
+      <h1 className="mb-16 text-gray-900 text-7xl dark:text-white">To do</h1>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {todos.map((todo) => {
           return (

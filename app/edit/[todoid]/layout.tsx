@@ -14,5 +14,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <main className="container mx-auto">{children}</main>;
+  return <main>{children}</main>;
 }

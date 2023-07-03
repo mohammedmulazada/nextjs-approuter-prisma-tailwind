@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import prisma from "./lib/prisma";
+import { redirect } from "next/navigation";
 
 export const handleUpdateTodo = async (data: FormData) => {
   const title = data.get("title") as string;
@@ -20,8 +21,7 @@ export const handleUpdateTodo = async (data: FormData) => {
     },
   });
 
-  revalidatePath("/");
-  revalidatePath("/edit/[todoid]");
+  redirect("/");
 };
 
 export const handleToggleTodo = async (data: FormData) => {

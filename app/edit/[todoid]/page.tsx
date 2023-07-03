@@ -15,7 +15,9 @@ export default async function EditTodoPage({
   }
   return (
     <form action={handleUpdateTodo}>
-      <h1>{todo?.title}</h1>
+      <h1 className="mb-16 text-gray-900 text-7xl dark:text-white">
+        {todo?.title}
+      </h1>
       <input readOnly type="hidden" value={todoid} name="todoid" />
       <label className="block text-sm font-bold mb-2" htmlFor="title">
         Title
