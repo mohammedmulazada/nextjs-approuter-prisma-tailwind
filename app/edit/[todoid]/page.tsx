@@ -2,7 +2,11 @@ import { handleUpdateTodo } from "@/app/action";
 import prisma from "@/app/lib/prisma";
 import { redirect } from "next/navigation";
 
-export default async function EditTodoPage({ params }) {
+export default async function EditTodoPage({
+  params,
+}: {
+  params: { todoid: string };
+}) {
   const { todoid } = params;
   const todo = await prisma.todo.findFirst({ where: { id: Number(todoid) } });
 
